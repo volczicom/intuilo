@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <title>forum-example</title>   
+    <meta charset="utf-8" />
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<style>.pkt_added {text-decoration:none !important;}</style>
+</head>
+<body>
+
+	<div>
+        <div class="page-splash" ng-show="false">
+            <div class="page-splash-message">
+				fff
+            </div>
+            <div id="bootstrap-progress" class="progress">
+				<div id="bootstrap-progress-bar" class="progress-bar" role="progressbar">
+                </div>
+            </div>
+            <div id="bootstrap-login" style="margin: auto; width: 220px; visibility: hidden">
+                <button onclick="signin(false);"
+                   style="font-size: 30px !important; margin: auto; width: 220px; margin: 0px;"
+                   class="btn btn-primary">Bejelentkezés!</button>
+            </div>
+        </div>
+    </div>
+	
+	<div ng-view></div>
+	
+	<script src="app/bootstrap.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=init"></script>
+	<script src="https://apis.google.com/js/api.js"></script>	
+	<script src="app/forum.app.js"></script>	
+	<script src="app/topic-list/topic-list.controller.js"></script>
+	<script src="app/message-list/message-list.controller.js"></script>
+	
+</body>
+</html>

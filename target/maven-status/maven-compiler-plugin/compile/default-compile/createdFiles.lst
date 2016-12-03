@@ -1,0 +1,8 @@
+com\doctusoft\example\forum\Constants.class
+com\doctusoft\example\forum\Topics.class
+com\doctusoft\example\forum\Message.class
+com\doctusoft\example\forum\PlayerManagerCE.class
+com\doctusoft\example\forum\Topic.class
+com\doctusoft\example\forum\MessageContent.class
+com\doctusoft\example\forum\Messages.class
+com\doctusoft\example\forum\ApiBoolean.class

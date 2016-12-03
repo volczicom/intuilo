@@ -1,0 +1,51 @@
+<!-- Bootsrap Navigation by David -->
+<nav class="navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://doctusoft.com/"><img class="logo" alt="Doctusoft logo" src="images/doctusoft_logo.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form name="topicForm" class="navbar-form navbar-left ng-pristine ng-invalid ng-invalid-required" role="create_topic">
+        <div class="form-group">
+          <input type="text" name="content" ng-model="vm.topicName"  required="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required input-sm" placeholder="Create topic">
+        </div>
+        <button type="submit" class="btn btn-default btn-sm" ng-click="vm.submit()">Submit</button>
+      </form>    
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  <!-- Bootsrap Navigation by David END -->    
+    
+<div class="container ng-scope">
+    <div class="row row-centered">
+       
+<!-- Bootsrap PANEL by David -->          
+  <div class="panel panel-default">
+  <!-- Table -->
+  <table class="table table-striped table-bordered table-hover">
+  <tbody><tr>
+            <th style="width:1%" class="text-center">#</th>
+			<th style="width:49%">Topic Name</th>
+			<th style="width:25%">Author</th>
+			<th style="width:20%">Created at</th>
+         </tr>
+
+		  
+		<tr ng-repeat="topic in vm.topics">
+            <td><p class="text-center">{{$index + 1}}.</p></td>
+			<td><a ng-href="/#/topic/{{topic.id}}" >{{topic.name}}</a></td>
+			<td>{{topic.author}}</td>
+			<td>{{topic.createdAt | date:'medium'}}</td>
+		  </tr>
+		</tbody>
+	</table>
+	</div>
+  </div>
+ </div>

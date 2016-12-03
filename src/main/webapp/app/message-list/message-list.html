@@ -1,0 +1,53 @@
+
+    <!-- Bootsrap Navigation by David -->
+    <nav class="navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://doctusoft.com/"><img class="logo" alt="Doctusoft logo" src="images/doctusoft_logo.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  <!-- Bootsrap Navigation by David END -->    
+    
+    <div class="container ng-scope">
+    <div class="row row-centered">
+	
+    <ol class="breadcrumb">
+        <li><a href="/#/">Forum</a></li>
+        <li class="active">Topic</li>
+    </ol>
+    
+		<div>
+			<h1 class="ng-binding">{{vm.topic.name}}</h1>
+		</div>
+        <form name="submitForm"  class="ng-pristine ng-invalid ng-invalid-required">			
+			<textarea type="text" name="content" ng-model="vm.content" ng-keyup="$event.keyCode == 13 && $event.ctrlKey && vm.submit()" required="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" rows="3" placeholder="Post a message"></textarea>		
+			 <div class="submit-button"><button type="submit" class="btn btn-default form-submit btn-primary pull-right RbtnMargin" ng-click="vm.submit()">Submit</button></div>
+		</form>
+
+		<div ng-hide="vm.messages.length > 0" class="ng-hide">No message yet</div>
+		
+		<ul class="list-group">
+			<!-- ngRepeat: message in vm.messages --><li ng-repeat="message in vm.messages" class="repeat-item list-group-item ng-scope">
+				<div> 
+					<div class="ng-binding">{{message.content}}</div>
+                    <div class="text-info">{{message.createdAt | date:'medium'}} by {{message.author}}</div>
+				</div>
+			</li>
+		</ul>
+		<input type="button" value="Load more" ng-click="vm.loadMore()" ng-show="vm.hasMore" class="ng-hide">
+        
+        <div class="submit-button pull-right"><button type="button" class="btn btn-default" aria-label="Left Align" ng-click="vm.loadFresh()">	
+		      Refresh <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+		  </button></div>
+	</div>
+</div>

@@ -1,0 +1,169 @@
+{
+ "kind": "discovery#rpcDescription",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/gR5_d6cbVs0TDDVZOuQ9W3BBhF4\"",
+ "discoveryVersion": "v1",
+ "id": "message:v1",
+ "name": "message",
+ "version": "v1",
+ "description": "Api to create or read messages in a topic.",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rpc",
+ "rootUrl": "https://volczi.appspot.com/_ah/api/",
+ "rpcUrl": "https://volczi.appspot.com/_ah/api/rpc",
+ "rpcPath": "/_ah/api/rpc",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "Message": {
+   "id": "Message",
+   "type": "object",
+   "properties": {
+    "author": {
+     "type": "string"
+    },
+    "content": {
+     "type": "string"
+    },
+    "createdAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
+  },
+  "MessageCollection": {
+   "id": "MessageCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Message"
+     }
+    }
+   }
+  },
+  "MessageContent": {
+   "id": "MessageContent",
+   "type": "object",
+   "properties": {
+    "content": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "methods": {
+  "message.message.createMessage": {
+   "id": "message.message.createMessage",
+   "parameters": {
+    "resource": {
+     "$ref": "MessageContent"
+    },
+    "topic": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "topic"
+   ],
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "message.message.getMessages": {
+   "id": "message.message.getMessages",
+   "allowGet": true,
+   "parameters": {
+    "limit": {
+     "type": "integer",
+     "default": "10",
+     "format": "int32"
+    },
+    "maxDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "minDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "topic": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "topic"
+   ],
+   "returns": {
+    "$ref": "MessageCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}
